@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Special Note For You</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      transition: background 0.5s ease, color 0.5s ease;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #fce7f3 0%, #e0e7ff 100%);
+      color: #334155;
+      padding: 20px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 40px 30px;
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      position: relative;
+    }
+
+    /* Polite Mode Styles */
+    .polite-header {
+      color: #7c3aed;
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+
+    .polite-text {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #475569;
+      margin-bottom: 30px;
+    }
+
+    .btn-next {
+      background: linear-gradient(90deg, #8b5cf6, #ec4899);
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 600;
+      padding: 14px 40px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-next:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+    }
+
+    /* Savage Mode Styles (Hidden by default) */
+    #roast-section {
+      display: none;
+    }
+
+    body.savage-mode {
+      background: #0f0f0f;
+      color: #ff3333;
+    }
+
+    .card.savage-card {
+      background: #18181b;
+      border: 2px solid #ef4444;
+      box-shadow: 0 0 30px rgba(239, 68, 68, 0.5);
+      animation: shake 0.4s ease-in-out;
+    }
+
+    .roast-header {
+      font-size: 2.2rem;
+      color: #ef4444;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .roast-list {
+      text-align: left;
+      list-style: none;
+      margin-bottom: 30px;
+    }
+
+    .roast-list li {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #f87171;
+      margin-bottom: 15px;
+      padding-left: 25px;
+      position: relative;
+    }
+
+    .roast-list li::before {
+      content: "🔥";
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    .emoji-flame {
+      font-size: 3.5rem;
+      margin-bottom: 15px;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20% { transform: translateX(-10px); }
+      40% { transform: translateX(10px); }
+      60% { transform: translateX(-10px); }
+      80% { transform: translateX(10px); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card" id="card">
+    
+    <!-- POLITE SECTION -->
+    <div id="polite-section">
+      <div style="font-size: 3rem; margin-bottom: 10px;">🌸</div>
+      <h1 class="polite-header">Warmest evening P & K </h1>
+      <p class="polite-text">
+        Thank you guys so much  i really appreciate you bieng part of my life , <strong>NO</strong> person in this world would not appreciate such family.
+      </p>
+      <button class="btn-next" onclick="unleashRoast()">Next ✨</button>
+    </div>
+
+    <!-- SAVAGE ROAST SECTION -->
+    <div id="roast-section">
+      <div class="emoji-flame">💀🔥</div>
+      <h1 class="roast-header">SIKE! YOU GOT BAITED</h1>
+      <ul class="roast-list">
+        <li>You really clicked that button thinking someone was actually being nice to you? That's sad.</li>
+        <li><strong>Phakiso</strong> you look like you struggle to calculate 10% tip without closing your eyes and holding your breath.</li>
+        <li><strong>Keneilwe </strong> i wish you wake up next to the one-eyed cat😂.</li>
+        <li><strong>To both</strong> i hope you have nightmares💀🔥.</li>
+        <li><strong>Keneilwe</strong> if confusion was a person, it would ask you for directions.</li>
+      </ul>
+      <p style="color: #a1a1aa; font-size: 0.9rem; font-style: italic;">
+        (Hope your feelings aren't hurt... Just kidding people you know i just got this compiler so you stand a chance to bieng my test subs..... 😂)
+      </p>
+    </div>
+
+  </div>
+
+  <script>
+    function unleashRoast() {
+      // Trigger haptic vibration on mobile phones
+      if ("vibrate" in navigator) {
+        navigator.vibrate([200, 100, 200]);
+      }
+
+      // Switch display modes
+      document.getElementById('polite-section').style.display = 'none';
+      document.getElementById('roast-section').style.display = 'block';
+      
+      // Apply dark evil theme styles
+      document.body.classList.add('savage-mode');
+      document.getElementById('card').classList.add('savage-card');
+    }
+  </script>
+</body>
+</html>
